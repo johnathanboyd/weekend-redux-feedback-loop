@@ -1,6 +1,6 @@
 const express = require( 'express' );
 const router = express.Router();
-const pool = require('../modules/pool');
+const pool = require('../pool');
 
 
 // GET the feedback that's been submitted. Will populate the admin page 
