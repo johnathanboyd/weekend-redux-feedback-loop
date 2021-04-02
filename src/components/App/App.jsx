@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   useEffect( ()=>{
-    getFeedback
+    getFeedback();
   }, [])
 
   //function to GET

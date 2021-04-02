@@ -7,9 +7,9 @@ const pool = require('../pool');
 router.get( '/', (req, res ) => {
     console.log( 'in /feedback GET' );
     pool.query('SELECT * FROM "feedback";').then( (results) => {
-        res.send(result.rows );
-    }).catch( ( err ) => {
-        console.log( 'error GET /api/feedback', error );
+        res.send(results.rows );
+    }).catch( ( error ) => {
+        console.log( 'error GET /api/feedback', error);
         res.sendStatus( 500);
     })
 })
