@@ -25,3 +25,5 @@ router.post( '/', (req, res) =>{
         sendstatus( 500 );
     })
 })
+
+module.exports = router;
