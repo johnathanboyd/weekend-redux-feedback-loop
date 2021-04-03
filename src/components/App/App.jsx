@@ -8,6 +8,7 @@ import Understanding from '../Understanding/Understanding';
 import Supported from '../Supported/Supported';
 import Comments from '../Comments/Comments';
 import Review from '../ReviewFeedback/ReviewFeedback';
+import Submitted from '../Submitted/Submitted';
 
 
 
@@ -63,6 +64,10 @@ function App() {
             <h1>Review Your Feedback</h1>
             <Review />
         </Route>
+
+        <Route path="/submitted">
+          <Submitted />
+        </Route>    
       </Router>
     </div>
   );

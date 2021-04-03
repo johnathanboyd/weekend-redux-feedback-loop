@@ -31,7 +31,7 @@ const newFeedback = ( state ={}, action)=>{
     if( action.type === 'setCommentFeedback'){
         state = {...state, comments: action.payload}
     }
-    if ( action.type === 'clearSurvey' ){
+    if ( action.type === 'clearEntries' ){
         state = {} 
     }
     return state;
