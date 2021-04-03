@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function Understanding() {
   const dispatch = useDispatch();
-
-  let addToStore=()=>{
-    console.log( 'in addToStore', state);
-    dispatch( { type: 'setUndersandFeedback', payload: state })
-    //  dispatch ( {type: 'UNDERSTANDING SPECIFIC REDUCER', payload: state }) 
-  }
-
-  const [state, setState ] = useState( '' )
-
+  
+  // this is for rating chosen
+  const [score, setScore ] = useState( '' )
+  
   let handleUnderstandingChange =(event)=>{
     console.log( 'in handleUnderstandingChange:', event.target.value );
-    setState( event.target.value )
+    setScore( event.target.value )
+  }
+  
+  let addToStore=( score )=>{
+    dispatch( { type: 'setUndersandFeedback', payload: score }) 
   }
 
   return(
@@ -26,7 +26,7 @@ function Understanding() {
               type="radio" 
               id="rating1" 
               value="1" 
-              checked={state ==="1"}
+              checked={score ==="1"}
               onChange={ handleUnderstandingChange }
             />
             1
@@ -38,7 +38,7 @@ function Understanding() {
               type="radio" 
               id="rating2" 
               value="2" 
-              checked={state === "2"}
+              checked={score === "2"}
               onChange={ handleUnderstandingChange }
             />
             2
@@ -51,7 +51,7 @@ function Understanding() {
               type="radio" 
               id="rating3" 
               value="3" 
-              checked={state === "3"}
+              checked={score === "3"}
               onChange={ handleUnderstandingChange }
             />
             3
@@ -63,7 +63,7 @@ function Understanding() {
               type="radio" 
               id="rating4" 
               value="4" 
-              checked={state === "4"}
+              checked={score === "4"}
               onChange={ handleUnderstandingChange }
             />
           4
@@ -75,7 +75,7 @@ function Understanding() {
               type="radio" 
               id="rating5" 
               value="5" 
-              checked={state === "5"}
+              checked={score === "5"}
               onChange={ handleUnderstandingChange }
             />
           5
@@ -83,8 +83,10 @@ function Understanding() {
         </div>
       </form>
       <div>
-          <button type="submit" onClick={addToStore}>Submit</button>
-        </div>
+        <Link to="/supported">
+          <button type="submit" onClick={() => addToStore( score )}>Submit</button>
+        </Link>  
+      </div>
 
     </>
   )

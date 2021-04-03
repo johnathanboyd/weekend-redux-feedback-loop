@@ -87,7 +87,7 @@ function Feeling() {
           <Link to="/understanding">
           <button type="submit" onClick={() => addToStore( score )}>Submit</button>
           </Link>
-        </div>
+      </div>
 
     </>
   )
