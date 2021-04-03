@@ -14,7 +14,7 @@ function Understanding() {
   }
   
   let addToStore=( score )=>{
-    dispatch( { type: 'setUndersandFeedback', payload: score }) 
+    dispatch( { type: 'setUnderstandFeedback', payload: score }) 
   }
 
   return(
