@@ -20,10 +20,11 @@ function App() {
 
   const [ newFeedback, setNewFeedback ] = useState( { feeling: '', understanding: '', support: '', comment:''} );
   
-  let addToStore=(feels)=>{
-    console.log( 'in addToStore' );
-    feels.feeling = feels.value
-    dispatch({ type: 'setNewFeedback', payload: feels})
+  let addToStore=()=>{
+    console.log( 'in addToStore:', state);
+    setNewFeedback( {...newFeedback, feeling: state})
+    console.log( newFeedback )
+    dispatch( { type: 'setNewFeedback', payload: state })
   }
   //function to GET
   let getFeedback=()=>{
@@ -45,11 +46,11 @@ function App() {
   
   const [ state, setState ] = useState( '' )
   
+  
   let handleFeelingChange=(event)=>{
     console.log( 'in handleFeelingChange:', event.target.value );
-    setState({
-      selectedOption: event.target.value
-    })
+    setState( event.target.value
+    )
     
   }
   
@@ -60,14 +61,14 @@ function App() {
         <h4>Don't forget it!</h4>
       </header>
       <h2>How are you feeling today?</h2>
-    <form >
+    <form>
         <div>
           <label htmlFor="1">
             <input 
               type="radio" 
               id="rating1" 
               value="1" 
-              checked={state.selectedOption ==="1"}
+              checked={state ==="1"}
               onChange={ handleFeelingChange }
             />
             1
@@ -79,7 +80,7 @@ function App() {
               type="radio" 
               id="rating2" 
               value="2" 
-              checked={state.selectedOption === "2"}
+              checked={state === "2"}
               onChange={ handleFeelingChange }
             />
             2
@@ -92,7 +93,7 @@ function App() {
               type="radio" 
               id="rating3" 
               value="3" 
-              checked={state.selectedOption === "3"}
+              checked={state === "3"}
               onChange={ handleFeelingChange }
             />
             3
@@ -104,7 +105,7 @@ function App() {
               type="radio" 
               id="rating4" 
               value="4" 
-              checked={state.selectedOption === "4"}
+              checked={state === "4"}
               onChange={ handleFeelingChange }
             />
           4
@@ -116,16 +117,16 @@ function App() {
               type="radio" 
               id="rating5" 
               value="5" 
-              checked={state.selectedOption === "5"}
+              checked={state === "5"}
               onChange={ handleFeelingChange }
             />
           5
           </label>
         </div>
-        <div>
-          <button type="submit" onClick={ addToStore }>Submit</button>
-        </div>
     </form>
+        <div>
+          <button type="submit" onClick={addToStore}>Submit</button>
+        </div>
 
 
 
