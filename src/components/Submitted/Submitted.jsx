@@ -17,7 +17,7 @@ function Submitted(){
           <div>
             <h1>Thank You!</h1>
             <Link to="/">
-                <button onClick={clearEntries}>High FIVE</button>
+                <button onClick={clearEntries}>HIGH FIVE</button>
             </Link>        
           </div>
         </>
