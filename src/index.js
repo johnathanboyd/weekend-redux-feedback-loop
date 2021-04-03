@@ -7,27 +7,30 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const submittedFeedback =( state =[], action)=>{
-    console.log( 'in submittedFeedback');
-    if( action.type === 'setSubmittedFeedback'){
-        console.log( 'set state' )
+
+// set up reducers 
+const submittedFeedback = (state = [], action) => {
+    console.log('in submittedFeedback');
+    if (action.type === 'setSubmittedFeedback') {
+        console.log('set state')
         state = [...action.payload]
     }
     return state;
-}
-/*const newFeedback =( state =[], action)=>{
-    console.log( 'in newFeedback' );
+} 
+const newFeedback =( state ={}, action)=>{
+    console.log( 'in newFeedback', action.payload );
     if( action.type === 'setNewFeedback'){
-        console.log( 'set state' )
-        state = [... action.payloa]
+        console.log( 'set state', action.payload )
+        state = {...state, feeling: action.payload}
     }
+    return state;
 }
-*/
+
 
 const store = createStore(
     combineReducers({
-        submittedFeedback: submittedFeedback,
-       // newFeedback: newFeedback
+        //submittedFeedback: submittedFeedback,
+        newFeedback: newFeedback
     }),
     applyMiddleware( logger )
 )

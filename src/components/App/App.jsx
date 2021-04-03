@@ -18,7 +18,13 @@ function App() {
     getFeedback();
   }, [])
 
-  // const [ newFeedback, setNewFeedback ] = useState( { feeling: '', understanding: '', support: '', comment:''} );
+  const [ newFeedback, setNewFeedback ] = useState( { feeling: '', understanding: '', support: '', comment:''} );
+  
+  let addToStore=(feels)=>{
+    console.log( 'in addToStore' );
+    feels.feeling = feels.value
+    dispatch({ type: 'setNewFeedback', payload: feels})
+  }
   //function to GET
   let getFeedback=()=>{
     console.log( 'in getFeedback' );
@@ -117,7 +123,7 @@ function App() {
           </label>
         </div>
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={ addToStore }>Submit</button>
         </div>
     </form>
 
