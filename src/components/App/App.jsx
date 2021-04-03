@@ -12,7 +12,7 @@ import Comments from '../Comments/Comments';
 
 function App() {
 
- 
+  /* the GET route is for the stretch goal
   useEffect( ()=>{
     getFeedback();
   }, [])
@@ -28,15 +28,7 @@ function App() {
       alert( 'err from getMenu')
     })
   }
-  //function to POST
-  
-  // change handler
-  
-  // radio selector specific state
-  
-  
-  
-  
+  */   
   
   
   return (
@@ -48,19 +40,21 @@ function App() {
 
       <Router>
         <Route path="/" exact>
-          <h2>How are you feeling today?</h2>
+          <h1>How are you feeling today?</h1>
           <Feeling />
         </Route>
 
         <Route path="/understanding" exact>
-          <h2>How well are you understanding the content?</h2>
+          <h1>How well are you understanding the content?</h1>
           <Understanding />
         </Route>
         <Route path="/supported" exact>
+          <h1>How well are you being supported?</h1>
           <Supported />
         </Route>
 
         <Route path="/comment" exact>
+            <h1>Any comments you want to leave?</h1>
         <Comments />
         </Route>
       </Router>
